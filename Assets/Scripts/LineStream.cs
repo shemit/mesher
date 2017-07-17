@@ -6,6 +6,7 @@ using UnityEngine;
 public class LineStream : MonoBehaviour {
     
     public List<Vector3> points;
+    private Vector3 center = new Vector3();
 
     public Plane getPlaneFromPoints(List<Vector3> _points)
     {
@@ -63,6 +64,7 @@ public class LineStream : MonoBehaviour {
         }
 
         Plane plane = new Plane(normal.normalized, centroid);
+        center = centroid;
 
         return plane;
     }
@@ -70,8 +72,8 @@ public class LineStream : MonoBehaviour {
     public void OnDrawGizmos()
     {
         Plane plane = getPlaneFromPoints(points);
-
-        Gizmos.DrawCube(plane.distance * plane.normal, new Vector3(1.0f, 1.0f, .1f));
+        Gizmos.DrawRay(new Ray(center, plane.normal));
+        //Gizmos.DrawCube(-1 * plane.distance * plane.normal, new Vector3(1.0f, 1.0f, .01f));
     }
 
 }

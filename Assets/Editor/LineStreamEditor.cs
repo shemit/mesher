@@ -17,7 +17,6 @@ public class LineStreamEditor : Editor {
             Vector3 p0 = handleTransform.TransformPoint(line.points[i]);
             Vector3 p1 = handleTransform.TransformPoint(line.points[(i + 1) % line.points.Count]);
 
-
             Handles.color = Color.white;
             Handles.DrawLine(p0, p1);
             Handles.DoPositionHandle(p0, handleRotation);
