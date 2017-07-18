@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Maps/LineTest.unity
-  isLoaded: 1
-  isActive: 1
